@@ -1,4 +1,3 @@
-
 // function letterFrequency(word) {
 //   const frequencyMap = {};
 
@@ -151,13 +150,13 @@
 //       console.log(`${n} found on index ${mid}`);
 //       flag = false
 //       console.log(start,mid,end)
-//     } 
+//     }
 //     else if (arr[mid] > n) {
 //       end = mid
 //       mid = Math.floor((start + end) / 2);
 //       console.log(`${n} found on index ${mid}`);
 
-//     } 
+//     }
 //     else if (arr[mid] < n) {
 //       start = mid;
 //       mid = Math.floor((start + end) / 2);
@@ -201,8 +200,7 @@
 // console.log("res : ", res);
 // console.log("i : ", i);
 
-
-// //---------------------------------------------------- write a program for stare case 
+// //---------------------------------------------------- write a program for stare case
 // function stareCase(){
 //   let step = '*'
 //   for(var i=1; i<=20; i++){
@@ -213,6 +211,27 @@
 //   }
 // }
 // stareCase()
+
+// // -----------------------------------------------write code to print diamond
+
+// function diamond(len) {
+//   if (len < 1 ) {
+//     console.log("Length must be a positive number.");
+//     return;
+//   }
+
+//   let diamond = '';
+
+//   for (let i = 0; i < len; i++) {
+//     let spaces = Math.abs(len / 2 - i);
+//     let stars = len - 2 * spaces;
+//     diamond += ' '.repeat(spaces) + '*'.repeat(stars) + '\n';
+//   }
+
+//   console.log(diamond);
+// }
+
+// printDiamond(22);
 
 // // ----------------------------------------- write a code for a**3 + b**3 == c**3 + d**3.
 // let i=0
@@ -242,4 +261,67 @@
 //   }
 // }
 
+// -------------------------------------------- determinant of a matrix 2x2 and 3*3
 
+
+// // 2 by 2 matrix
+
+// function determinant(matrix){
+//   const a = matrix[0][0]
+//   const b = matrix[0][1]
+//   const c = matrix[1][0]
+//   const d = matrix[1][1]
+
+//   const det = (a * d) - (b * c)
+//   console.log(det)
+// }
+// const a = prompt('Enter the value of a: ')
+// const b = prompt('Enter the value of b: ')
+// const c = prompt('Enter the value of c: ')
+// const d = prompt('Enter the value of d: ')
+
+// const matrix = [
+//   [a, b],
+//   [c, d]
+// ]
+// determinant(matrix)
+
+// // 3 by 3 matrix
+
+// function determinant(matrix) {
+
+//   if(matrix.length !== 3 || matrix[0].length !== 3){
+//     console.log(`Invalid matrix size. Please provide a 3*3 matrix`)
+//     return 0
+//   }
+//   const a = matrix[0][0];
+//   const b = matrix[0][1];
+//   const c = matrix[0][2];
+//   const d = matrix[1][0];
+//   const e = matrix[1][1];
+//   const f = matrix[1][2];
+//   const g = matrix[2][0];
+//   const h = matrix[2][1];
+//   const i = matrix[2][2];
+
+//   const det = a * (e * i - f * h) - b * (d * i - g * f) + c * (d * h - e * g);
+//   console.log(det);
+// }
+
+// const a = prompt("Enter the value of a:");
+// const b = prompt("Enter the value of b:");
+// const c = prompt("Enter the value of c:");
+// const d = prompt("Enter the value of d:");
+// const e = prompt("Enter the value of e:");
+// const f = prompt("Enter the value of f:");
+// const g = prompt("Enter the value of g:");
+// const h = prompt("Enter the value of h:");
+// const i = prompt("Enter the value of i:");
+
+// const matrix = [
+//   [a, b, c],
+//   [d, e, f],
+//   [g, h, i],
+// ];
+
+// determinant(matrix);
