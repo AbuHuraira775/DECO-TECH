@@ -200,10 +200,7 @@
 // console.log("res : ", res);
 // console.log("i : ", i);
 
-// //---------------------------------------------------- write a program for stare case
-// let space = 0
-// let step = ''
-// let res
+// //---------------------------------------------------- write a program for stare case 
 // function stareCase(){
 //   for(var i=1; i<=10; i++){
 //     res = step.repeat(i)+"\n"
@@ -212,6 +209,27 @@
 //   }
 // }
 // stareCase()
+
+// // -----------------------------------------------write code to print diamond
+
+// function diamond(len) {
+//   if (len < 1 ) {
+//     console.log("Length must be a positive number.");
+//     return;
+//   }
+
+//   let diamond = '';
+
+//   for (let i = 0; i < len; i++) {
+//     let spaces = Math.abs(len / 2 - i);
+//     let stars = len - 2 * spaces;
+//     diamond += ' '.repeat(spaces) + '*'.repeat(stars) + '\n';
+//   }
+
+//   console.log(diamond);
+// }
+
+// printDiamond(22);
 
 // // ----------------------------------------- write a code for a**3 + b**3 == c**3 + d**3.
 // let i=0
@@ -241,112 +259,152 @@
 //   }
 // }
 
-// console.log(Math.cbrt(27))
-// let arr = [];
-// for (var a = 1; a <= 10; a++) {
+// -------------------------------------------- determinant of a matrix 2x2 and 3*3
 
-//   for (var b = 1; b <= 10; b++) {
-//     // console.log(` Values\n a:${a}, b:${b}, c:${arr.c}, d:${arr.d}`)
-//     console.log(arr)
-//     arr.push({
-//       a,
-//       b,
-//       c: a,
-//       d: b,
-//     });
-//     if (a ** 3 + b ** 3 == arr.c ** 3 + arr.d ** 3) {
-//       console.log(
-//         `Output : ${a ** 3 + b ** 3}, Values\n a:${a}, b:${b}, c:${c}`
-//       );
-//     }
+// // 2 by 2 matrix
+
+// function determinant(matrix){
+//   const a = matrix[0][0]
+//   const b = matrix[0][1]
+//   const c = matrix[1][0]
+//   const d = matrix[1][1]
+
+//   const det = (a * d) - (b * c)
+//   console.log(det)
+// }
+// const a = prompt('Enter the value of a: ')
+// const b = prompt('Enter the value of b: ')
+// const c = prompt('Enter the value of c: ')
+// const d = prompt('Enter the value of d: ')
+
+// const matrix = [
+//   [a, b],
+//   [c, d]
+// ]
+// determinant(matrix)
+
+// // 3 by 3 matrix
+
+// function determinant(matrix) {
+
+//   if(matrix.length !== 3 || matrix[0].length !== 3){
+//     console.log(`Invalid matrix size. Please provide a 3*3 matrix`)
+//     return 0
 //   }
+//   const a = matrix[0][0];
+//   const b = matrix[0][1];
+//   const c = matrix[0][2];
+//   const d = matrix[1][0];
+//   const e = matrix[1][1];
+//   const f = matrix[1][2];
+//   const g = matrix[2][0];
+//   const h = matrix[2][1];
+//   const i = matrix[2][2];
+
+//   const det = a * (e * i - f * h) - b * (d * i - g * f) + c * (d * h - e * g);
+//   console.log(det);
 // }
 
-// // ------------------------------------------ BASIC PROBLEM FOR INTERVIES
+// const a = prompt("Enter the value of a:");
+// const b = prompt("Enter the value of b:");
+// const c = prompt("Enter the value of c:");
+// const d = prompt("Enter the value of d:");
+// const e = prompt("Enter the value of e:");
+// const f = prompt("Enter the value of f:");
+// const g = prompt("Enter the value of g:");
+// const h = prompt("Enter the value of h:");
+// const i = prompt("Enter the value of i:");
 
-// // FIND THE MIN AND MAX OF AN ARRAY
+// const matrix = [
+//   [a, b, c],
+//   [d, e, f],
+//   [g, h, i],
+// ];
 
-// const arr = [2, 3, 8, 9, 1, 7, 2];
-// let res = {
-//   min: arr[0],
-//   max: arr[1],
-// };
-// for (let i = 0; i < arr.length; i++) {
-//   if (arr[i] > arr[i + 1]) {
-//     if (res.max < arr[i]) {
-//       res.max = arr[i];
-//     }
-//   } else {
-//     if (res.min > arr[i]) {
-//       res.min = arr[i];
-//     }
-//   }
-// }
-// console.log("Rsult : ", res);
+// determinant(matrix);
 
-// // ----------------------------------------------------------BUBBLE SORTING
+// -------------------------------------------- BUBBLE SORTING
 
-// const arr = [10,9,8,7,6,5,4,3,2,1]
-// function bubbleSort(arr){
-//     for(let i=0; i<arr.length;i++){
-//         for(let j= 0; j<arr.length;j++){
-//             if(arr[i]<arr[j] && arr[i]%2 !== 0){
-//                 let swap = arr[i]
-//                 arr[i] = arr[j]
-//                 arr[j] = swap
+// const arr = [2,3,4,1,5,6,7,11,10]
+// function bubbleSorting(arr){
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=0;j<arr.length;j++){
+//             if(arr[j] > arr[j+1]){
+//                 const swap = arr[j]
+//                 arr[j] = arr[j+1]
+//                 arr[j+1] = swap
 //             }
 //         }
 //     }
 // }
-// bubbleSort(arr)
-// console.log(`Sorted Array : `,arr)
 
-// //--------------------------------------sort the array such that odd numbers are first and even are last
+// bubbleSorting(arr)
+// console.log(arr)
+
+// find MIN and MAX of the array
+
+// function find(arr) {
+//   let res = { min: arr[0], max: arr[0] };
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] < res.min) {
+//       res.min = arr[i];
+//     }
+//     if (arr[i] > res.max) {
+//       res.max = arr[i];
+//     }
+//   }
+//   console.log(res);
+// }
+
+// const arr = [2, 3, 4, 1, 5, 6, 7, 11, 10, 45, 65, 7, 8, 9, 0];
+// find(arr);
+
+
 // SORTING WITH EVEN/ODD 
 
-const arr = [2, 3, 4, 1, 5, 6, 7, 11, 10, 45, 65, 7, 8, 9, 0];
+// const arr = [2, 3, 4, 1, 5, 6, 7, 11, 10, 45, 65, 7, 8, 9, 0];
 
-function separateEvenOdd(arr){
-    let even = []
-    let odd = []
+// function separateEvenOdd(arr){
+//     let even = []
+//     let odd = []
 
-    for(let i=0; i<arr.length; i++){
-        if(arr[i]%2 === 0){
-            even.push(arr[i])
-        }
-        else odd.push(arr[i])
-    }
+//     for(let i=0; i<arr.length; i++){
+//         if(arr[i]%2 === 0){
+//             even.push(arr[i])
+//         }
+//         else odd.push(arr[i])
+//     }
 
-    return {odd,even}
-}
+//     return {odd,even}
+// }
 
-function mergeArr(odd,even){
-    return odd.concat(even)
-}
-function sortArr(arr){
-    const res = separateEvenOdd(arr)
+// function mergeArr(odd,even){
+//     return odd.concat(even)
+// }
+// function sortArr(arr){
+//     const res = separateEvenOdd(arr)
 
-    for(let i=0; i<res.odd.length;i++){
-        for(let j=0;j<res.odd.length;j++){
-            if(res.odd[j] > res.odd[j+1]){
-                const swap = res.odd[j]
-                res.odd[j] = res.odd[j+1]
-                res.odd[j+1] = swap
-            }
-        }
-    }
-    for(let i=0;i<res.even.length;i++){
-        for(let j=0;j<res.even.length;j++){
-            if(res.even[j] > res.even[j+1]){
-                const swap = res.even[j]
-                res.even[j] = res.even[j+1]
-                res.even[j+1] = swap
-            }
-        }
-    }   
-    const sorted_array = mergeArr(res.odd,res.even)
-    console.log('sorted_array',sorted_array)
+//     for(let i=0; i<res.odd.length;i++){
+//         for(let j=0;j<res.odd.length;j++){
+//             if(res.odd[j] > res.odd[j+1]){
+//                 const swap = res.odd[j]
+//                 res.odd[j] = res.odd[j+1]
+//                 res.odd[j+1] = swap
+//             }
+//         }
+//     }
+//     for(let i=0;i<res.even.length;i++){
+//         for(let j=0;j<res.even.length;j++){
+//             if(res.even[j] > res.even[j+1]){
+//                 const swap = res.even[j]
+//                 res.even[j] = res.even[j+1]
+//                 res.even[j+1] = swap
+//             }
+//         }
+//     }   
+//     const sorted_array = mergeArr(res.odd,res.even)
+//     console.log('sorted_array',sorted_array)
 
-}
+// }
 
-const res = sortArr(arr)
+// const res = sortArr(arr)
