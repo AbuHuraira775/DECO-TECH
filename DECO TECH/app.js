@@ -1,4 +1,3 @@
-
 // function letterFrequency(word) {
 //   const frequencyMap = {};
 
@@ -151,13 +150,13 @@
 //       console.log(`${n} found on index ${mid}`);
 //       flag = false
 //       console.log(start,mid,end)
-//     } 
+//     }
 //     else if (arr[mid] > n) {
 //       end = mid
 //       mid = Math.floor((start + end) / 2);
 //       console.log(`${n} found on index ${mid}`);
 
-//     } 
+//     }
 //     else if (arr[mid] < n) {
 //       start = mid;
 //       mid = Math.floor((start + end) / 2);
@@ -201,23 +200,23 @@
 // console.log("res : ", res);
 // console.log("i : ", i);
 
-
-// //---------------------------------------------------- write a program for stare case 
+// //---------------------------------------------------- write a program for stare case
+// let space = 0
+// let step = ''
+// let res
 // function stareCase(){
-//   let step = '*'
-//   for(var i=1; i<=20; i++){
-//     console.log(step)
-//     step+='*'
-//     for(var j=1; j<i;j++){
-//     }
+//   for(var i=1; i<=10; i++){
+//     res = step.repeat(i)+"\n"
+//     console.log(res)
+//     // step+=i
 //   }
 // }
 // stareCase()
 
 // // ----------------------------------------- write a code for a**3 + b**3 == c**3 + d**3.
 // let i=0
-// for(let a = 1; a<= 10;a++){
-//   for(let b=1;b<=10;b++){
+// for(let ao = 1; a<= 10;a++){
+//   fr(let b=1;b<=12;b++){
 //     for(let c = 1;c <=10;c++){
 //       for(let d = 1;d <= 10; d++){
 //             i++
@@ -242,4 +241,112 @@
 //   }
 // }
 
+// console.log(Math.cbrt(27))
+// let arr = [];
+// for (var a = 1; a <= 10; a++) {
 
+//   for (var b = 1; b <= 10; b++) {
+//     // console.log(` Values\n a:${a}, b:${b}, c:${arr.c}, d:${arr.d}`)
+//     console.log(arr)
+//     arr.push({
+//       a,
+//       b,
+//       c: a,
+//       d: b,
+//     });
+//     if (a ** 3 + b ** 3 == arr.c ** 3 + arr.d ** 3) {
+//       console.log(
+//         `Output : ${a ** 3 + b ** 3}, Values\n a:${a}, b:${b}, c:${c}`
+//       );
+//     }
+//   }
+// }
+
+// // ------------------------------------------ BASIC PROBLEM FOR INTERVIES
+
+// // FIND THE MIN AND MAX OF AN ARRAY
+
+// const arr = [2, 3, 8, 9, 1, 7, 2];
+// let res = {
+//   min: arr[0],
+//   max: arr[1],
+// };
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr[i] > arr[i + 1]) {
+//     if (res.max < arr[i]) {
+//       res.max = arr[i];
+//     }
+//   } else {
+//     if (res.min > arr[i]) {
+//       res.min = arr[i];
+//     }
+//   }
+// }
+// console.log("Rsult : ", res);
+
+// // ----------------------------------------------------------BUBBLE SORTING
+
+// const arr = [10,9,8,7,6,5,4,3,2,1]
+// function bubbleSort(arr){
+//     for(let i=0; i<arr.length;i++){
+//         for(let j= 0; j<arr.length;j++){
+//             if(arr[i]<arr[j] && arr[i]%2 !== 0){
+//                 let swap = arr[i]
+//                 arr[i] = arr[j]
+//                 arr[j] = swap
+//             }
+//         }
+//     }
+// }
+// bubbleSort(arr)
+// console.log(`Sorted Array : `,arr)
+
+// //--------------------------------------sort the array such that odd numbers are first and even are last
+// SORTING WITH EVEN/ODD 
+
+const arr = [2, 3, 4, 1, 5, 6, 7, 11, 10, 45, 65, 7, 8, 9, 0];
+
+function separateEvenOdd(arr){
+    let even = []
+    let odd = []
+
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]%2 === 0){
+            even.push(arr[i])
+        }
+        else odd.push(arr[i])
+    }
+
+    return {odd,even}
+}
+
+function mergeArr(odd,even){
+    return odd.concat(even)
+}
+function sortArr(arr){
+    const res = separateEvenOdd(arr)
+
+    for(let i=0; i<res.odd.length;i++){
+        for(let j=0;j<res.odd.length;j++){
+            if(res.odd[j] > res.odd[j+1]){
+                const swap = res.odd[j]
+                res.odd[j] = res.odd[j+1]
+                res.odd[j+1] = swap
+            }
+        }
+    }
+    for(let i=0;i<res.even.length;i++){
+        for(let j=0;j<res.even.length;j++){
+            if(res.even[j] > res.even[j+1]){
+                const swap = res.even[j]
+                res.even[j] = res.even[j+1]
+                res.even[j+1] = swap
+            }
+        }
+    }   
+    const sorted_array = mergeArr(res.odd,res.even)
+    console.log('sorted_array',sorted_array)
+
+}
+
+const res = sortArr(arr)
