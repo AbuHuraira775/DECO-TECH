@@ -200,7 +200,7 @@
 // console.log("res : ", res);
 // console.log("i : ", i);
 
-// //---------------------------------------------------- write a program for stare case 
+// //---------------------------------------------------- write a program for stare case
 // function stareCase(){
 //   for(var i=1; i<=10; i++){
 //     res = step.repeat(i)+"\n"
@@ -356,11 +356,10 @@
 //   console.log(res);
 // }
 
-// const arr = [2, 3, 4, 1, 5, 6, 7, 11, 10, 45, 65, 7, 8, 9, 0];
+// const arr = [2, 3, 4, 1, 5, 6, 7, -1,11, 10, 45, 65, 7, 8, 9, 0];
 // find(arr);
 
-
-// SORTING WITH EVEN/ODD 
+// SORTING WITH EVEN/ODD
 
 // const arr = [2, 3, 4, 1, 5, 6, 7, 11, 10, 45, 65, 7, 8, 9, 0];
 
@@ -401,10 +400,93 @@
 //                 res.even[j+1] = swap
 //             }
 //         }
-//     }   
+//     }
 //     const sorted_array = mergeArr(res.odd,res.even)
 //     console.log('sorted_array',sorted_array)
 
 // }
 
-// const res = sortArr(arr)
+// sortArr(arr)
+
+// ----------------------------------------------------STARE CASE WITH SINGLE LOOP
+
+// let count = 1;
+// for (let i = 1; i <= 4; i++) {
+//   let line = "";
+//   for (let j = 1; j <= i; j++) {
+//     line += count;
+//     count++;
+//   }
+//   console.log(line);
+// }
+
+// console.log("-------------------");
+
+// ----------------------------------------------------STARE CASE WITH SINGLE LOOP
+
+// let count = 1
+// let str = ''
+// let line = 1
+// for(i=1; count<=20; i++){
+//     str+=count;
+//     count++
+//     if(i===line){
+//         str += '\n'
+//         line++
+//         i=0
+//     }
+// }
+
+// console.log(str)
+
+// -----------------------------------------------MERGE SORT ALGO
+
+    
+    
+// [ 1, 2, 6, 3, 4, 5 ]
+// [1,2,6] [3,4,5]
+
+function mergeSort(list = [],start = null,len = null){
+    start ??=0;
+    len ??=list.length;
+    if(len == 0) return [];
+    if(len == 1) return [list[start]];
+
+    let mid = Math.floor(len / 2);
+    const left = mergeSort(list, start, mid); // 9/2=4.5 => 4
+    const right = mergeSort(list,mid+start,len - mid)
+    
+    return merge(left,right);
+}
+
+function merge(left = [],right = []){
+    let result = [];
+
+    let leftItr = 0;
+    let rightItr = 0;
+
+    while(leftItr < left.length && rightItr < right.length){
+        if(left[leftItr] < right[rightItr]){
+            result.push(left[leftItr]);
+            leftItr++;
+        } else {
+            result.push(right[rightItr]);
+            rightItr++;
+        }
+    }
+    // add the remaining
+    while(rightItr < right.length){
+        result.push(right[rightItr]);
+        rightItr++;
+    }
+    // add the remaining items
+    while(leftItr < left.length){
+        result.push(left[leftItr])
+        leftItr++;
+    }
+    return result;
+}
+
+let l = [7,6,5,4,3,2,1]
+console.log(mergeSort(l))
+
