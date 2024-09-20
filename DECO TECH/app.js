@@ -59,7 +59,6 @@
 // console.log(res);
 
 // // -----------------------------------write a function that find the absolute of a number without using if else
-// // method 1
 
 // function findAbs(n){
 //     let r = n>0? n*1 : n*-1
@@ -116,58 +115,6 @@
 // let out = linearSearch(arr, 89, length);
 // console.log(out);
 
-// //   ---------------------------------------------------- write BS algo on sorted arr
-
-// const arr = [100, 9, 4, 3, 6, 0, 4, 2, 1, 55, 4, 6, 7, 99];
-
-// function sorting(arr) {
-//   for (var i = 0; i < arr.length; i++) {
-//     for (var j = i + 1; j < arr.length; j++) {
-//       if (arr[i] > arr[j]) {
-//         // swap them
-//         const swap = arr[i];
-//         arr[i] = arr[j];
-//         arr[j] = swap;
-//       }
-//     }
-//   }
-//   return arr;
-// }
-
-// function BS(arr, n) {
-//   const sorted_array = sorting(arr);
-//   console.log("sorted array : ", sorted_array);
-
-//   let start = 0;
-//   let end = arr.length;
-//   let mid = Math.floor((start + end) / 2);
-//   let flag = true
-//   console.log(start,mid,end)
-//   let iter = 0
-//   while (start === mid && end === mid && flag) {
-//     iter++
-//     if (arr[mid] == n) {
-//       console.log(`${n} found on index ${mid}`);
-//       flag = false
-//       console.log(start,mid,end)
-//     }
-//     else if (arr[mid] > n) {
-//       end = mid
-//       mid = Math.floor((start + end) / 2);
-//       console.log(`${n} found on index ${mid}`);
-
-//     }
-//     else if (arr[mid] < n) {
-//       start = mid;
-//       mid = Math.floor((start + end) / 2);
-//       console.log(`${n} found on index ${mid}`);
-
-//     }
-//   }
-//   console.log('i',iter)
-// }
-// BS(arr, 1);
-
 // // ----------------------------- BS ALGO USING RECURSION METHOD 02
 
 // const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
@@ -199,16 +146,6 @@
 // const res = RLoop(start, end, len, 14);
 // console.log("res : ", res);
 // console.log("i : ", i);
-
-// //---------------------------------------------------- write a program for stare case
-// function stareCase(){
-//   for(var i=1; i<=10; i++){
-//     res = step.repeat(i)+"\n"
-//     console.log(res)
-//     // step+=i
-//   }
-// }
-// stareCase()
 
 // // -----------------------------------------------write code to print diamond
 
@@ -408,7 +345,7 @@
 
 // sortArr(arr)
 
-// ----------------------------------------------------STARE CASE WITH SINGLE LOOP
+// ----------------------------------------------------STARE CASE 
 
 // let count = 1;
 // for (let i = 1; i <= 4; i++) {
@@ -439,54 +376,139 @@
 
 // console.log(str)
 
-// -----------------------------------------------MERGE SORT ALGO
+// // -----------------------------------------------MERGE SORT ALGO
 
-    
-    
-// [ 1, 2, 6, 3, 4, 5 ]
-// [1,2,6] [3,4,5]
+// function mergeSort(arr) {
+//   if (arr.length < 2) return arr;
 
-function mergeSort(list = [],start = null,len = null){
-    start ??=0;
-    len ??=list.length;
-    if(len == 0) return [];
-    if(len == 1) return [list[start]];
+//   let mid = Math.floor(arr.length / 2);
 
-    let mid = Math.floor(len / 2);
-    const left = mergeSort(list, start, mid); // 9/2=4.5 => 4
-    const right = mergeSort(list,mid+start,len - mid)
-    
-    return merge(left,right);
+//   let left = mergeSort(arr.slice(0, mid));
+//   let right = mergeSort(arr.slice(mid));
+
+//   return merge(left, right);
+// }
+
+// function merge(left, right) {
+//   let sortedArr = [];
+//   while (left.length && right.length && right[0] %2 === 0) {
+//     if (left[0] < right[0] ) {
+//       sortedArr.push(left.shift());
+//     } else {
+//       sortedArr.push(right.shift());
+//     }
+//   }
+
+//   return [...sortedArr, ...left, ...right];
+// }
+
+// const arr = [6, 5, 4, 3, 2, 1];
+// console.log(mergeSort(arr));
+
+// -----------------------------------------CLASS -----------------------------------
+
+
+// let list = new Array(4);
+// in other language array is has fixed size neither it can be increased nor decreased
+// but JS is dynamic language so we can increase or decrease the size of the array
+
+// Array pros:
+// access time is O(1), because we can access the element by index
+// cons:
+// we cannot increase or decrease the size of the array
+
+// List vs Array:
+// List is a collection of elements that are ordered and changeable and allows duplicate members
+// Array is a collection of elements that are ordered and changeable and does not allows duplicate members
+
+// there are three types of list
+// 1. singly linked list
+// 2. doubly linked list
+// 3. circular linked list
+
+// Linked List concept:
+const x = {
+  node: 1,
+  next: {
+    node: 2,
+    next: {
+      node: 3,
+      next: {
+        node: 4,
+        next: {
+          node: 5,
+          next: null,
+        },
+      },
+    },
+  },
+};
+
+// memory allocation in linked list: 
+// linked list access time : O(n)
+// insertion and deletion : O(1)
+// we can perform deletion and addition in between 
+// it is one way means can trace from start to end 
+// and cannot tracae reverse 
+// we can also create linked list in JS 
+
+// if we want to perform iteration from the half of the linked list 
+// than we will use double linked list 
+
+// JS use this data structure by default array list: []
+// c sharp, pyhton, java almost every lenguage use this array list 
+// How element dynamically add?
+// when we push than a new array is created of double size 
+// than old array is replaced with new array 
+// access time is fast due to sequential  O(1)
+// push and pop is O(n)
+// we need these data structure when we face dangerous algorithm
+// we have to select DS according to the scenarios 
+// there is one more data structure called binary data structure
+// we will discuss later
+// we have one more data structure called stack and queue (most asking in interview)
+// Stack: LIFO (last in first out) FILO (first in last out)
+// Queue: FIFO (first in first out) LILO (last in last out)
+// we can implement stack and queue using array and linked list
+// stack terms: pop and push 
+// we also use pop and push in array list because the element is added and removed from the last index
+// queue terms: enqueue and dequeue
+// stack and quese has code level question in interview
+// Q: How can we achieve queue by using stack behavious?
+// A: we can use two stack to achieve queue behaviour
+
+// async await also use queue data structure 
+
+// last Data structure called "DICTONARY"
+// characteristics:
+// 1. key value pair
+// 2. key is unique
+// 4. key is string
+// 5. value can be any type
+
+// access time: O(1)
+// add and delete time: O(n)
+
+// LIST, STACK, QUEUE, DICTIONARY these are the most popular data structure
+// practice these DS 
+
+
+// Q write code for LHR?
+
+const cache = {
+  cache1: {arg:[],output:[]},
+  cache2: {arg:[],output:[]},
+  cache3: {arg:[],output:[]},
+  cache4: {arg:[],output:[]},
+  cache5: {arg:[],output:[]},
 }
 
-function merge(left = [],right = []){
-    let result = [];
-
-    let leftItr = 0;
-    let rightItr = 0;
-
-    while(leftItr < left.length && rightItr < right.length){
-        if(left[leftItr] < right[rightItr]){
-            result.push(left[leftItr]);
-            leftItr++;
-        } else {
-            result.push(right[rightItr]);
-            rightItr++;
-        }
-    }
-    // add the remaining
-    while(rightItr < right.length){
-        result.push(right[rightItr]);
-        rightItr++;
-    }
-    // add the remaining items
-    while(leftItr < left.length){
-        result.push(left[leftItr])
-        leftItr++;
-    }
-    return result;
+const sum = (a,b)=>{
+  return a+b
 }
 
-let l = [7,6,5,4,3,2,1]
-console.log(mergeSort(l))
-
+const arr1 = [1,2,3]
+const arr2 = [1,2,3]
+if(cache !== caches){
+  console.log('found')
+}
